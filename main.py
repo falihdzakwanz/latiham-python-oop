@@ -2,12 +2,25 @@
 
 class Hero:
     
-    def __init__(self, inputName, inputAge, inputSchool):
-        self.name = inputName
-        self.age = inputAge
-        self.scool = inputSchool
+    def __init__(self, name, health, attackPower, armorNumber):
+        self.name = name
+        self.health = health
+        self.attackPower = attackPower
+        self.armorNumber = armorNumber
 
+    def attack(self, enemy):
+        print(self.name + " menyerang " + enemy.name)
+        enemy.attackedBy(self, self.attackPower)
 
-hero1 = Hero("najib", 22, "Man 1 Bandar Lampung");
+    def attackedBy(self, enemy, enemy_attackPower):
+        print(self.name + " diserang ", enemy.name)
+        damage_taken = enemy_attackPower/enemy.armorNumber
+        print("Serangan terasa : " + str(damage_taken))
+        self.health -= damage_taken
+        print("Darah " + self.name + " tersisa " + str(self.health))
 
-print(hero1.__dict__)
+naruto = Hero("naruto", 100, 10, 5)
+sasuke = Hero("sasuke", 100, 5, 10)
+
+naruto.attack(sasuke)
+sasuke.attack(naruto)

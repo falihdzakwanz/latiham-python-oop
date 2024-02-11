@@ -1,5 +1,3 @@
-# print("hello world")
-
 class Hero:
     
     def __init__(self, name, health, attackPower, armorNumber):

@@ -20,6 +20,29 @@ class Hero:
 
     @property
     def info(self):
-        return "Hero\t:{}\nLevel\t:{}\nXP\t:{}\nHealth\t:{}/{}\nAttack\t:{}\nArmor\t:{}".format(self.__name, self.__level, self.__exp, self.__health, self.__healthMax, self.__attPower, self.__armor)
+        return "Hero\t:{}\nLevel\t:{}\nHealth\t:{}/{}\nAttack\t:{}\nArmor\t:{}\n".format(self.__name, self.__level, self.__health, self.__healthMax, self.__attPower, self.__armor)
+
+    @property
+    def gainExp(self):
+        pass
+
+    @gainExp.setter
+    def gainExp(self, addExp):
+        self.__exp += addExp
+        if(self.__exp >= 100):
+            print(self.__name + " Level UP!")
+            self.__level += 1
+            self.__exp -= 100
+
+            self.__healthMax = self.__healthStandar * self.__level
+            self.__attPower = self.__attPowerStandar * self.__level
+            self.__armor = self.__armorStandar * self.__level
 
 minato = Hero("minato", 100, 5, 10)
+
+print(minato.info)
+minato.gainExp = 50
+minato.gainExp = 50
+minato.gainExp = 50
+
+print(minato.info)

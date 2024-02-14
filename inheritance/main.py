@@ -1,4 +1,4 @@
-from Hero import HeroIntelligent,HeroStrength
+from hero import HeroIntelligent,HeroStrength
 
 
 lina = HeroIntelligent('lina')
